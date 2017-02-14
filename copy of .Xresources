@@ -1,13 +1,24 @@
-Xcursor.theme: DMZ-White
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
-URxvt.font:                xft:Roboto-Mono:pixelsize=12
-URxvt.boldFont:            xft:Roboto-Mono:pixelsize=12:bold
-URxvt.italicFont:          xft:Roboto-Mono:pixelsize=12:italic
-URxvt.boldItalicFont:      xft:Roboto-Mono:pixelsize=12:bold:italic
-URxvt.letterSpace:         -1
+! URxvt.font: xft:Roboto Mono:size=10
+URxvt.font: xft:Roboto Mono:size=10, xft:Roboto Mono for PowerlineSymbols
+! URxvt.font: xft:GohuFont Powerline:size=11, xft:PowerlineSymbols for Powerline
+URxvt.scrollBar: false
+URxvt.transparent: true
+URxvt.shading: 30
+URxvt.foreground: #ffffff
 
-*background: #232C31
-*foreground: #C5C8C6
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
 ! black
 *color0: #2D3C46
 *color8: #425059
@@ -32,26 +43,3 @@ URxvt.letterSpace:         -1
 ! white
 *color7: #6C7A80
 *color15: #C5C8C6
-
-URxvt.internalBorder:      0
-URxvt.externalBorder:      0
-
-URxvt.scrollBar:           false
-
-URxvt*fading:              30
-
-URxvt.perl-ext-common:     matcher,resize-font,foo,keyboard-select
-
-URxvt.keysym.F11:          perl:fullscreen:switch
-
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger:  C-Up
-
-URxvt.url-launcher:        /usr/bin/chromium
-URxvt.keysym.M-Delete:     perl:matcher:list
-URxvt.colorUL:             #7780a1
-
-urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/c800
-
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
