@@ -1,0 +1,44 @@
+#!/bin/bash
+
+function freboot {
+    selection="$(printf '%s\n' "no" "yes" | rofi -dmenu -p Reboot? -lines 4)"
+    if [ $selection = "no" ]; then
+        exit 0
+    else
+        sudo reboot
+    fi
+}
+function fshutdown {
+    selection="$(printf '%s\n' "no" "yes" | rofi -dmenu -p Shutdown? -lines 4)"
+    if [ $selection = "no" ]; then
+        exit 0
+    else
+        sudo shutdown
+    fi
+}
+function fsuspend {
+    selection="$(printf '%s\n' "no" "yes" | rofi -dmenu -p Suspend? -lines 4)"
+    if [ $selection = "no" ]; then
+        exit 0
+    else
+        sudo pm-suspend --quirk-s3-mode
+    fi
+}
+function fhibernate {
+    selection="$(printf '%s\n' "no" "yes" | rofi -dmenu -p Hibernate? -lines 4)"
+    if [ $selection = "no" ]; then
+        exit 0
+    else
+        echo wip
+    fi
+}
+
+selection="$(printf '%s\n' "reboot" "suspend" "shutdown" "hibernate" |sort| rofi -dmenu -p $ -lines 4)"
+
+case "$selection" in
+    "reboot") freboot ;;
+    "shutdown") fshutdown ;;
+    "suspend") fsuspend ;;
+    "hibernate") fhibernate ;;
+    *) exit 1
+esac
