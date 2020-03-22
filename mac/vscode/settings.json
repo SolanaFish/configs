@@ -1,0 +1,75 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": -1,
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todohighlight.keywords": [
+        "TODO", "TODO:"
+    ],
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        {"column": 100, "color": "#2979FF"}
+    ],
+    "files.trimTrailingWhitespace": true,
+    "eslint.alwaysShowStatus": true,
+    "editor.dragAndDrop": false,
+    "editor.renderWhitespace": "boundary",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 13,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "workbench.iconTheme": "vscode-great-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        { "language": "typescript", "autoFix": true },
+        { "language": "typescriptreact", "autoFix": true },
+    ],
+    "explorer.confirmDelete": false,
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "editor.cursorSurroundingLines": 10,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#2979FF",
+        "activityBar.activeBorder": "#2979FF",
+        "list.activeSelectionForeground": "#2979FF",
+        "list.inactiveSelectionForeground": "#2979FF",
+        "list.highlightForeground": "#2979FF",
+        "scrollbarSlider.activeBackground": "#2979FF50",
+        "editorSuggestWidget.highlightForeground": "#2979FF",
+        "textLink.foreground": "#2979FF",
+        "progressBar.background": "#2979FF",
+        "pickerGroup.foreground": "#2979FF",
+        "tab.activeBorder": "#2979FF",
+        "notificationLink.foreground": "#2979FF",
+        "editorWidget.resizeBorder": "#2979FF",
+        "editorWidget.border": "#2979FF",
+        "settings.modifiedItemIndicator": "#2979FF",
+        "settings.headerForeground": "#2979FF",
+        "panelTitle.activeBorder": "#2979FF",
+        "breadcrumb.activeSelectionForeground": "#2979FF",
+        "menu.selectionForeground": "#2979FF",
+        "menubar.selectionForeground": "#2979FF",
+        "editor.findMatchBorder": "#2979FF",
+        "selection.background": "#2979FF40"
+    },
+    "materialTheme.accent": "Blue",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "git.autofetch": true,
+    "workbench.editor.limit.value": 4,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "todo-tree.tree.showScanModeButton": false
+}

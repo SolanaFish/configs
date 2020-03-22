@@ -1,0 +1,15 @@
+{
+	"Given when then": {
+		"scope": "javascript,typescript",
+		"prefix": "gwt",
+		"body": [
+			"// Given",
+			"",
+			"// When",
+			"",
+			"// Then",
+			"",
+		],
+		"description": "Log output to console"
+	}
+}
