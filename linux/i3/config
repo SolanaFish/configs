@@ -1,0 +1,306 @@
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+set $mod Mod4
+
+font pango:Roboto thin 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# start rofi
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Tab exec rofi -show window
+
+# Change focus:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move window:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Move workspaces between screens:
+bindsym $mod+greater move workspace to output up
+bindsym $mod+less move workspace to output down
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Bind lockscreen
+# bindsym $mod+l exec termite -e slock
+bindsym $mod+l exec i3lock -kB 8 --radius=1 --textsize=28 --datesize=30 --timesize=50 --timecolor=ffffffff --datecolor=ffffffff --insidevercolor=ffffff00 --insidewrongcolor=ffffff00 --insidecolor=ffffff00 --ringvercolor=ffffff00 --ringwrongcolor=ffffff00 --ringcolor=ffffff00 --linecolor=ffffff00 --separatorcolor=ffffff00 --textcolor=ffffff00 --keyhlcolor=ffffff00 --bshlcolor=ffffff00
+
+
+# Bind shutter
+bindsym $mod+s exec shutter -s --min_at_startup --disable_systray
+
+# Bind menu
+bindsym $mod+x exec oblogout
+
+# Bind gaps
+# bindsym  $mod+g gaps outer current minus 10
+# bindsym  $mod+shift+g gaps outer current plus 10
+
+# No titlebar
+new_window pixel 3
+
+# Enable back and forth
+workspace_auto_back_and_forth yes
+
+# Delay urgency hint
+force_display_urgency_hint 1000ms
+
+# Focus follows Mouse
+focus_follows_mouse no
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Bind media key audio controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send $(xbacklight | cut -d '.' -f 1) -u low
+bindsym XF86MonBrightnessUp exec xbacklight +10 && notify-send $(xbacklight | cut -d '.' -f 1) -u low
+
+bindsym $mod+p exec lxrandr
+
+# Autostart setup
+  # Setup output
+  exec_always xrandr --output eDP1 --primary --fbmm 346x194 --mode 3200x1800 --pos 0x0 --rotate normal
+  # Setup wallpaper
+  exec_always feh --bg-fill /home/solana/wall.jpg
+  # Setup transparency
+  exec compton -f --backend glx --vsync opengl #-cCGb
+  exec nm-applet
+  exec_always ~/.config/polybar/start.sh
+
+# Autostart programs
+exec google-chrome-stable --force-device-scale-factor=1.4
+exec atom
+exec --no-startup-id spotify
+exec thunar
+exec_always xset r rate 250 50
+exec_always setxkbmap pl
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec dunst
+exec /opt/urserver/urserver --daemon
+exec touchegg
+
+# Assing programs to their workspaces (use: xprop to get class)Application
+#assign [class="Spotify"] $workspace10
+assign [class="Google-chrome"] $workspace1
+assign [class="Atom"] $workspace2
+assign [title="Thunar"] $workspace4
+assign [class="Synergy"] $workspace9
+assign [title="Messenger"] $workspace12
+for_window [class="Spotify"] move to workspace $workspace12
+for_window [class="Termite"] border pixel 1
+for_window [class="Oblogout"] fullscreen
+# for_window [class="Google-chrome"] floating enable
+
+# Workspace variables (font awesome)
+set $workspace1 "1:"
+set $workspace2 "2:"
+set $workspace3 "3:"
+set $workspace4 "4:"
+set $workspace5 "5:5"
+set $workspace6 "6:6"
+set $workspace7 "7:7"
+set $workspace8 "8:8"
+set $workspace9 "9:9"
+set $workspace10 "10:10"
+set $workspace11 "11:"
+set $workspace12 "12:"
+
+# # switch to workspace
+# bindsym $mod+1 workspace $workspace1
+# bindsym $mod+2 workspace $workspace2
+# bindsym $mod+3 workspace $workspace3
+# bindsym $mod+4 workspace $workspace4
+# bindsym $mod+5 workspace $workspace5
+# bindsym $mod+6 workspace $workspace6
+# bindsym $mod+7 workspace $workspace7
+# bindsym $mod+8 workspace $workspace8
+# bindsym $mod+9 workspace $workspace9
+# bindsym $mod+0 workspace $workspace10
+
+# # move focused container to workspace
+# bindsym $mod+Shift+1 move container to workspace $workspace1
+# bindsym $mod+Shift+2 move container to workspace $workspace2
+# bindsym $mod+Shift+3 move container to workspace $workspace3
+# bindsym $mod+Shift+4 move container to workspace $workspace4
+# bindsym $mod+Shift+5 move container to workspace $workspace5
+# bindsym $mod+Shift+6 move container to workspace $workspace6
+# bindsym $mod+Shift+7 move container to workspace $workspace7
+# bindsym $mod+Shift+8 move container to workspace $workspace8
+# bindsym $mod+Shift+9 move container to workspace $workspace9
+# bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# switch to workspace with f-keys
+bindsym F1 workspace $workspace1
+bindsym F2 workspace $workspace2
+bindsym F3 workspace $workspace3
+bindsym F4 workspace $workspace4
+bindsym F5 workspace $workspace5
+bindsym F6 workspace $workspace6
+bindsym F7 workspace $workspace7
+bindsym F8 workspace $workspace8
+bindsym F9 workspace $workspace9
+bindsym F10 workspace $workspace10
+bindsym F11 workspace $workspace11
+bindsym F12 workspace $workspace12
+
+# move focused container to workspace with f-keys
+bindsym $mod+F1 move container to workspace $workspace1
+bindsym $mod+F2 move container to workspace $workspace2
+bindsym $mod+F3 move container to workspace $workspace3
+bindsym $mod+F4 move container to workspace $workspace4
+bindsym $mod+F5 move container to workspace $workspace5
+bindsym $mod+F6 move container to workspace $workspace6
+bindsym $mod+F7 move container to workspace $workspace7
+bindsym $mod+F8 move container to workspace $workspace8
+bindsym $mod+F9 move container to workspace $workspace9
+bindsym $mod+F10 move container to workspace $workspace10
+bindsym $mod+F11 move container to workspace $workspace11
+bindsym $mod+F12 move container to workspace $workspace12
+
+bindsym button9 workspace $workspace1
+
+
+# Bind workspaces to external monitor
+#workspace $workspace1 output HDMI1
+#workspace $workspace2 output HDMI1
+#workspace $workspace3 output HDMI1
+#workspace $workspace4 output HDMI1
+#workspace $workspace5 output HDMI1
+#workspace $workspace6 output HDMI1
+#workspace $workspace7 output HDMI1
+#workspace $workspace8 output HDMI1
+#workspace $workspace9 output HDMI1
+#workspace $workspace10 output HDMI1
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3 bruh? Gnome is dangerous, take care!' -b 'Ofc m8' 'i3-msg exit'"
+# power menu
+bindsym $mod+e exec ~/Documents/shutdownMenu/shutdownMenu.sh
+# system info
+bindsym $mod+i exec "termite -e glances"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "free" {
+  bindsym Shift+Escape mode "default"
+}
+bindsym $mod+Shift+f mode "free"
+
+# Color variables (http://stackoverflow.com/a/11019879/1993204)
+  #black 40%
+  set $base00 #00000066
+  #grey 800
+  set $base01 #424242
+  #white
+  set $base02 #ffffff
+  #blue A200
+  set $base03 #88C0D0
+  #indygo 900
+  set $base04 #EBCB8B
+  #blue A700
+  set $base05 #EBCB8B
+  #pink 500
+  set $base06 #BF616A
+
+  # Widow Colours
+  #                       border  background text    indicator
+  client.focused          $base03 $base03    $base03 $base05
+  client.focused_inactive $base01 $base01    $base01 $base01
+  client.unfocused        $base01 $base01    $base01 $base01
+  client.urgent           $base06 $base06    $base06 $base06
+
+  hide_edge_borders none
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         i3bar_command i3bar -t
+#         status_command i3blocks
+#         height 40
+#         font pango:Roboto thin, Awesome 9
+#         strip_workspace_numbers yes
+#         colors {
+#           separator $base03
+#           background $base00
+#           statusline $base02
+#           #                   border  background  text
+#           focused_workspace   $base00 $base00     $base03
+#           active_workspace    $base00 $base00     $base03
+#           inactive_workspace  $base00 $base00     $base02
+#           urgent_workspace    $base00 $base00     $base06
+#         }
+# }
+
+# Gaps settings
+  gaps outer 0
+  gaps inner 100
+  smart_gaps on
